@@ -1,27 +1,54 @@
-# GithubProfilesApp
+# GitHub Profiles Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+This Angular application allows users to search for GitHub profiles and view information about users and their repositories.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Search GitHub profiles by username
+- View user profile information including name, avatar, bio, and number of repositories
+- View a list of user repositories with pagination
+- Responsive UI using Angular Material
 
-## Code scaffolding
+## Setup Instructions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To run this Angular application locally, follow these steps:
 
-## Build
+1. **Clone the Repository:**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```bash
+   git clone https://github.com/your-username/github-profiles-app.git
+   cd github-profiles-app
 
-## Running unit tests
+2. **Install Dependencies:**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```bash
+   npm install
 
-## Running end-to-end tests
+3. **Run the Application:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   ng serve --open
 
-## Further help
+## Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Enter a GitHub username in the search bar to view the user's profile information and repositories.
+- Click on a repository to view more details.
+- Use pagination controls to navigate through the repository list.
+
+## Routing Structure
+
+This Angular application uses Angular Router for navigation. Below is the routing structure:
+
+- **Profile Page**:
+
+  - URL: `/profile/:username`
+  - Description: Displays basic user information such as the user's name, avatar, bio, and number of repositories.
+
+- **Repository List Page**:
+
+  - URL: `/repositories/:username`
+  - Description: Fetches and displays a list of the user's GitHub repositories. Each repository card includes repository name, description, and list of topics associated with the repository (if available). Pagination is implemented to show only 10 repositories per page.
+
+- **Home Page**:
+  - URL: `/`
+  - Description: Displays a search bar where users can enter a GitHub username to navigate to the corresponding profile page.
