@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   username!: string;
   user: any;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -26,5 +26,9 @@ export class ProfileComponent implements OnInit {
       .subscribe((data: any) => {
         this.user = data;
       });
+  }
+
+  viewRepos() {
+    this.router.navigate(['/repositories', this.username]);
   }
 }

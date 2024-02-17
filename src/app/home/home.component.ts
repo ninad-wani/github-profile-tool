@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +11,16 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   username: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   searchProfile() {
-    // Navigate to the profile route with the username as a parameter
-    this.router.navigate(['/profile', this.username]);
+    this.http.get(`https://api.github.com/users/${this.username}`).subscribe(
+      (data) => {
+        this.router.navigate(['/profile', this.username]);
+      },
+      (err) => {
+        swal.fire("Unable to fetch data!");
+      }
+    );
   }
 }

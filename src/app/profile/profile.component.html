@@ -1,6 +1,7 @@
-<div *ngIf="user">
+<div *ngIf="user" class="custom-card p-4 text-center">
   <h2>{{ user.name }}</h2>
-  <img [src]="user.avatar_url" alt="User Avatar" width="100">
+  <img [src]="user.avatar_url" alt="User Avatar" width="100" class="custom-img m-4">
   <p>{{ user.bio }}</p>
   <p>Public Repositories: {{ user.public_repos }}</p>
+  <span *ngIf="user?.public_repos>0" class="view-btn" (click)="viewRepos()">View public repositories &rarr;</span>
 </div>

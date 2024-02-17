@@ -1,11 +1,11 @@
-<div *ngFor="let repo of repositories">
-  <h3>{{ repo.name }}</h3>
+<div *ngFor="let repo of repositories" class="custom-card p-4 mb-4">
+  <h3 style="word-break: break-all;">{{ repo.name }}</h3>
   <p>{{ repo.description }}</p>
-  <!-- Display additional repository information as needed -->
+  <p>{{ repo.topics.join(",") }}</p>
 </div>
 
-<div class="pagination">
-  <button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
-  <span>Page {{ currentPage }}</span>
-  <button (click)="onPageChange(currentPage + 1)">Next</button>
+<div class="pagination mt-4">
+  <button class="btn btn-warning" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+  <span class="m-2">Page {{ currentPage }}</span>
+  <button class="btn btn-primary" (click)="onPageChange(currentPage + 1)">Next</button>
 </div>

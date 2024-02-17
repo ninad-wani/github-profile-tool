@@ -1,4 +1,18 @@
-<form (ngSubmit)="searchProfile()">
-  <input type="text" [(ngModel)]="username" name="username" placeholder="Enter username">
-  <button type="submit">Search</button>
-</form>
+<div class="home-container">
+  <div>
+    <h4>Search with username</h4>
+    <p>Enter correct GitHub username to search</p>
+  </div>
+
+  <form (ngSubmit)="searchProfile()" class="d-grid w-50">
+    <label for="username">Username</label>
+    <input
+      class="p-2"
+      type="text"
+      [(ngModel)]="username"
+      name="username"
+      placeholder="Enter username"
+    />
+    <button type="submit" class="btn btn-primary m-4 p-2">Search</button>
+  </form>
+</div>
